@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<script type="text/javascript" src="http://cdn.jsdelivr.net/vue/1.0.7/vue.min.js" ></script>
+		<link rel="stylesheet" href="css/mui.min.css">
+		<style>
+			body{
+				background: #e4dcd9;
+			}
+			#pullrefresh{
+				background: #e4dcd9;
+			}
+			.mui-card-content{
+				padding-top: 10px;
+				padding-left: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll" id="mui-scroll">
+				
+			</div>
+		</div>
+		
+		
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/json2.js" ></script>
+		<script src="//cdn.kik.com/app/2.0.1/app.min.js"></script>
+		<script>
+			mui.init({
+				pullRefresh: {
+					container: '#pullrefresh',
+					down: {
+						height:50,//可选,默认50.触发下拉刷新拖动距离,
+				       auto: true,//可选,默认false.自动下拉刷新一次
+				       contentdown : "下拉可以刷新",//可选，在下拉可刷新状态时，下拉刷新控件上显示的标题内容
+				       contentover : "释放立即刷新",//可选，在释放可刷新状态时，下拉刷新控件上显示的标题内容
+				       contentrefresh : "正在刷新...",//可选，正在刷新状态时，下拉刷新控件上显示的标题内容
+						callback: pulldownRefresh
+					}
+				}
+			});
+			function pulldownRefresh() {
+			setTimeout(function() {
+				var re_content = document.getElementById("re_content");
+				mui.ajax('http://www.royalplatform.cn/company/app_ad_message.php',{
+                    data: {
+	                   
+	               },
+                   dataType:'json',
+                   type:'get',
+                   timeout:'10000',
+
+					success:function(data){
+					var muiScroll=mui(".mui-scroll")[0];
+					muiScroll.innerHTML = "";
+					for(var item in data){
+					var parentDiv=document.createElement("div");//创建<div class="mui-card">
+					parentDiv.setAttribute("class","mui-card");
+					muiScroll.appendChild(parentDiv);
+					var newDiv=document.createElement("div");//创建<div class="mui-card-header mui-card-media">
+					newDiv.setAttribute("class","mui-card-header mui-card-media");
+					parentDiv.appendChild(newDiv);
+					var newImg=document.createElement("img");
+					newImg.setAttribute("src","img/face.jpg");
+					newDiv.appendChild(newImg);
+					var newDiv_2=document.createElement("div");//创建<div class="mui-media-body">
+					newDiv_2.setAttribute("class","mui-media-body");
+					newDiv_2.innerText="管理员";
+					newDiv.appendChild(newDiv_2);
+					var newP=document.createElement("p");
+					newP.innerText="发表于："+data[item].ad_lastdate;
+					newDiv_2.appendChild(newP);
+					var newDiv_3=document.createElement("div");
+					newDiv_3.setAttribute("class","mui-card-content");
+					parentDiv.appendChild(newDiv_3);
+					var newP_2=document.createElement("p");
+					newDiv_3.appendChild(newP_2);
+					newP_2.innerText=data[item].ad_content;
+					
+					}
+				},
+				error:function(xhr,ype,errorThrown){
+					//异常处理；
+					//alert(errorThrown);
+				}
+			});
+			mui('#pullrefresh').pullRefresh().endPulldownToRefresh();
+		 }, 1500);
+		}
+		</script>
+	</body>
+
+</html>

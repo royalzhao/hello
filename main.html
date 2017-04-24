@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	    <title></title>
+	    <link href="css/mui.min.css" rel="stylesheet"/>
+	    <link rel="stylesheet" href="css/base.css" />
+	    <link rel="stylesheet" href="css/main.css" />
+	    <link rel="stylesheet" href="css/icons-extra.css" />
+	    
+	</head>
+	<body>
+		<div class="mui-content">
+			<div class="logo">
+				<img src="img/logo.png" />
+			</div>
+			
+			<div class="mui-row">
+		        <a class="mui-col-sm-6 mui-col-xs-6 block1" id="write_message">
+		            <div class="mui-block"><span class="mui-icon-extra mui-icon-extra-comment"></span></div>
+		            <p>写留言</p>
+		        </a>
+		        <a class="mui-col-sm-6 mui-col-xs-6 block2" id="message">
+		            <div class="mui-block"><span class="mui-icon-extra mui-icon-extra-heart"></span></div>
+		            <p>看留言</p>
+		        </a>
+		    </div>
+		    <div class="mui-row">
+		        <a class="mui-col-sm-6 mui-col-xs-6 block3" id="shige">
+		           <div class="mui-block"><span class="mui-icon-extra mui-icon-extra-order"></span></div>
+		            <p>美文</p>
+		        </a>
+		        <a class="mui-col-sm-6 mui-col-xs-6 block4" id="notice">
+		           <div class="mui-block"><span class="mui-icon-extra mui-icon-extra-notice"></span></div>
+		            <p>通知</p>
+		       </a>
+		    </div>
+		    <div class="mui-row">
+		        <a class="mui-col-sm-6 mui-col-xs-6 block5" id="setting">
+		            <div class="mui-block"><span class="mui-icon mui-icon-contact"></span></div>
+		            <p>主页</p>
+		        </a>
+		        <a class="mui-col-sm-6 mui-col-xs-6 block6" id="about">
+		            <div class="mui-block"><span class="mui-icon-extra mui-icon-extra-peoples"></span></div>
+		            <p>关于</p>
+		        </a>
+		    </div>
+		    </div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/common.js" ></script>
+		<script type="text/javascript" charset="utf-8">
+	      	mui.init({
+	      		swipeBack:true, //启用右滑关闭功能
+
+			  	preloadPages:[
+			    {
+			      	url: 'message.html', 
+				    id:'message',
+			    }
+			  ],
+			  statusBarBackground: '#ffffff'
+			  
+			});
+				
+	      	mui.plusReady(function() {
+	      		
+	      		var user=myStorage.getItem('username');
+				if(user == null){
+					 mui.openWindow({
+					    url:'index.html',
+					    id:'login',
+					});
+				}
+					document.getElementById('write_message').addEventListener('tap', function() {
+					  //打开关于页面
+					  mui.openWindow({
+					    url: 'write_message.html', 
+					    id:'write_message'
+					  });
+					});
+					document.getElementById('message').addEventListener('tap', function() {
+					  //打开关于页面
+					  mui.openWindow({
+					    url: 'message.html', 
+					    id:'message',
+					    
+						});
+					});
+					document.getElementById('shige').addEventListener('tap', function() {
+					  //打开关于页面
+					  mui.openWindow({
+					    url: 'shige.html', 
+					    id:'shige'
+					  });
+					});
+					document.getElementById('notice').addEventListener('tap', function() {
+					  //打开关于页面
+					  mui.openWindow({
+					    url: 'notice.html', 
+					    id:'notice'
+					  });
+					});
+					document.getElementById('about').addEventListener('tap', function() {
+					  //打开关于页面
+					  mui.openWindow({
+					    url: 'about.html', 
+					    id:'about'
+					  });
+					});
+					document.getElementById('setting').addEventListener('tap', function() {
+					  //打开关于页面
+					  mui.openWindow({
+					    url: 'setting.html', 
+					    id:'setting'
+					  });
+					});
+				
+	      		
+	      	})
+	    </script>
+	</body>
+</html>

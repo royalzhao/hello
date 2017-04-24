@@ -1,0 +1,43 @@
+.mui-content{
+	background: #FFFFFF;
+	width: 100%;
+	height: 100%;
+}
+.mui-content .logo{
+	width: 150px;
+	margin: 0 auto;
+}
+.mui-content .mui-row .mui-col-sm-6{
+	overflow: auto;
+	height: 170px;
+	position: relative;
+	color: #444;
+}
+.mui-content .mui-row .block6{
+	background: #9acbda;
+}
+.mui-content .mui-row .block5{
+	background: #9fd2d6;
+}
+.mui-content .mui-row .block4{
+	background: #aedfd9;
+}
+.mui-content .mui-row .block3{
+	background: #cbd9d9;
+}
+.mui-content .mui-row .block2{
+	background: #e4dcd9;
+}
+.mui-content .mui-row .block1{
+	background: #ede9e6;
+}
+.mui-content .mui-row .mui-col-sm-6 .mui-block{
+	position: absolute;
+	top: 45%;
+	left: 45%;
+}
+.mui-content .mui-row .mui-col-sm-6 p{
+	position: absolute;
+	top: 70%;
+	left: 45%;
+}

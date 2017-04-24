@@ -1,0 +1,176 @@
+{
+  "index.html": {
+    "resources": [
+      "css/index.css",
+      "css/base.css",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "img/logo.png",
+      "img/bg.jpg",
+      "index.html",
+      "main.html",
+      "js/common.js",
+      "write_message.html",
+      "reg.html"
+    ],
+    "refer": [
+      "index.html",
+      "main.html",
+      "reg.html",
+      "write_message.html",
+      "message.html",
+      "sub.html",
+      "message_sub.html"
+    ]
+  },
+  "main.html": {
+    "resources": [
+      "index.html",
+      "fonts/mui-icons-extra.ttf",
+      "css/main.css",
+      "css/icons-extra.css",
+      "css/base.css",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "img/logo.png",
+      "js/jquery.js",
+      "js/common.js"
+    ],
+    "refer": [
+      "index.html",
+      "write_message.html",
+      "message.html",
+      "notice.html",
+      "shige.html",
+      "setting.html",
+      "about.html"
+    ]
+  },
+  "reg.html": {
+    "resources": [
+      "css/index.css",
+      "css/base.css",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "img/logo.png",
+      "img/bg.jpg",
+      "index.html"
+    ],
+    "refer": [
+      "index.html"
+    ]
+  },
+  "write_message.html": {
+    "resources": [
+      "img/face.jpg",
+      "css/write_message.css",
+      "css/base.css",
+      "js/common.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "img/logo.png",
+      "message.html"
+    ],
+    "refer": [
+      "message.html",
+      "index.html"
+    ]
+  },
+  "message.html": {
+    "resources": [
+      "css/message.css",
+      "css/icons-extra.css",
+      "message_sub.html",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "write_message.html"
+    ],
+    "refer": [
+      "message_sub.html",
+      "write_message.html"
+    ]
+  },
+  "message_sub.html": {
+    "resources": [
+      "img/face.jpg",
+      "js/json2.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ]
+  },
+  "sub.html": {
+    "resources": [
+      "js/mui.min.js",
+      "img/face.jpg",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/json2.js"
+    ]
+  },
+  "notice.html": {
+    "resources": [
+      "img/face.jpg",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/icons-extra.css",
+      "css/message.css",
+      "notice_sub.html"
+    ],
+    "refer": [
+      "notice_sub.html"
+    ]
+  },
+  "shige.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ]
+  },
+  "setting.html": {
+    "resources": [
+      "css/feedback.css",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/feedback.js",
+      "js/mui.view.js",
+      "js/common.js",
+      "img/my.png"
+    ],
+    "refer": [
+      "index.html",
+      "main.html"
+    ]
+  },
+  "about.html": {
+    "resources": [
+      "js/mui.zoom.js",
+      "img/diaodefeng.jpg",
+      "img/liuyutong.jpg",
+      "img/changbaofa.jpg",
+      "js/mui.previewimage.js",
+      "img/sunweicheng.jpg",
+      "img/lishihui.jpg",
+      "img/mahongping.jpg",
+      "img/liqinghau.jpg",
+      "img/zhaopshaui.jpg",
+      "img/guanshengyi.jpg",
+      "fonts/mui.ttf",
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ]
+  },
+  "notice_sub.html": {
+    "resources": [
+      "img/face.jpg"
+    ]
+  }
+}

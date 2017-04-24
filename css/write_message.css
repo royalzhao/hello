@@ -1,0 +1,56 @@
+.mui-content{
+	background: #ede9e6;
+	width: 100%;
+}
+.mui-content .logo{
+	width: 150px;	
+	margin: 20px auto;
+	
+}
+.mui-content .face{
+	max-width: 30%;
+	margin: 20% auto;
+}
+.mui-content .face img{
+	max-width: 100%;
+	border-radius: 20%;
+}
+.mui-content .message .mui-input-row {
+	width: 90%;
+	margin: 0 auto;
+}
+.mui-content .message .mui-input-row label{
+	color: #FFFFFF;	
+}
+.mui-content .message .mui-input-row input{
+	border-bottom: 1px solid #FFFFFF;
+}
+.mui-input-row label{
+	width: 25%;
+}
+.mui-input-row label ~ input, .mui-input-row label ~ select, .mui-input-row label ~ textarea{
+	width: 75%;
+}
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder { 
+color: #FFFFFF; 
+} 
+input:-moz-placeholder, textarea:-moz-placeholder { 
+color: #FFFFFF; 
+} 
+input::-moz-placeholder, textarea::-moz-placeholder { 
+color: #FFFFFF; 
+} 
+input:-ms-input-placeholder, textarea:-ms-input-placeholder { 
+color: #FFFFFF; 
+} 
+input{
+	color: #FFFFFF;
+}
+.mui-btn-block{
+	margin-top: 25px;
+	width: 90%;
+	margin: 0 auto;
+	padding: 5px 0;
+	border-radius: 20px;
+	-webkit-border-radius: 20px;
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/index.css" />
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+    <style>
+    	body{
+    		background: url(img/bg.jpg) no-repeat;
+    		background-attachment: fixed;
+    		background-size: cover;
+    	}
+    </style>
+</head>
+<body>
+	<div class="login">
+		<div class="logo">
+			<img src="img/logo.png"/>
+		</div>
+		<form class="form" id="form">
+			<div class="mui-input-row">
+		        <label><span class="mui-icon mui-icon mui-icon-person"></span></label>
+		    	<input type="text" id="username" class="mui-input-clear" placeholder="用户名">
+		    </div>
+		    <div class="mui-input-row">
+		        <label><span class="mui-icon mui-icon-help"></span></label>
+		        <input type="password" id="password" class="mui-input-password" placeholder="密码">
+		    </div>
+		    <div class="mui-input-row">
+		        <label><span class="mui-icon mui-icon-help"></span></label>
+		        <input type="password" id="passwordConfirm" class="mui-input-password" placeholder="重新输入密码">
+		    </div>
+		    <div class="mui-button-row">
+		    	<input type="button" class="mui-btn mui-btn-block" id="reg" value="注册" />
+		    </div>
+		    
+		</form>
+	</div>
+	<script>
+		var check = true;
+		var regButton = document.getElementById('reg');
+		var username = document.getElementById("username");
+		var password = document.getElementById("password");
+		var passwordConfirm = document.getElementById("passwordConfirm");
+		//校验通过，继续执行业务逻辑
+		if(check){
+		  	regButton.addEventListener('tap', function(event) {
+		  		if(username.value==0){
+					mui.toast('请输入用户名');
+					return;
+				}
+		  		if(password.value<6){
+					mui.toast('密码不得小于6位');
+					return;
+				}
+				if (passwordConfirm.value != password.value) {
+					mui.toast('密码两次输入不一致');
+					return;
+				}
+		  		
+		  		mui.ajax('http://www.royalplatform.cn/company/app_reg.php',{
+                    data:  {
+	                   username:username.value,
+	                   password:password.value
+	               },
+                   dataType:'json',
+                   type:'post',
+                   timeout:'10000',
+                   success:function(data){
+					
+                      if(data=='1'){  
+                           mui.toast("注册成功！");
+                           window.location.href="index.html";
+                           //页面登录处理
+                       }else{
+                       		mui.toast("用户名已存在！");
+                       }
+                   },
+                   error:function(data){
+                            mui.toast('网络错误');
+                       }
+               });
+           });
+		}
+	</script>
+</body>
+</html>

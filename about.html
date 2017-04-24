@@ -1,0 +1,498 @@
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="css/mui.min.css">
+		<!--App自定义的css-->
+		<style type="text/css">
+			
+			body{
+				background: #9ACBDA;
+			}
+			.mui-content{
+				background: #9ACBDA;
+			}
+			.mui-preview-image.mui-fullscreen {
+				position: fixed;
+				z-index: 20;
+				background-color: #000;
+			}
+			.mui-preview-header,
+			.mui-preview-footer {
+				position: absolute;
+				width: 100%;
+				left: 0;
+				z-index: 10;
+			}
+			.mui-preview-header {
+				height: 44px;
+				top: 0;
+			}
+			.mui-preview-footer {
+				height: 50px;
+				bottom: 0px;
+			}
+			.mui-preview-header .mui-preview-indicator {
+				display: block;
+				line-height: 25px;
+				color: #fff;
+				text-align: center;
+				margin: 15px auto 4;
+				width: 70px;
+				background-color: rgba(0, 0, 0, 0.4);
+				border-radius: 12px;
+				font-size: 16px;
+			}
+			.mui-preview-image {
+				display: none;
+				-webkit-animation-duration: 0.5s;
+				animation-duration: 0.5s;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+			}
+			.mui-preview-image.mui-preview-in {
+				-webkit-animation-name: fadeIn;
+				animation-name: fadeIn;
+			}
+			.mui-preview-image.mui-preview-out {
+				background: none;
+				-webkit-animation-name: fadeOut;
+				animation-name: fadeOut;
+			}
+			.mui-preview-image.mui-preview-out .mui-preview-header,
+			.mui-preview-image.mui-preview-out .mui-preview-footer {
+				display: none;
+			}
+			.mui-zoom-scroller {
+				position: absolute;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+				-webkit-box-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				-webkit-backface-visibility: hidden;
+			}
+			.mui-zoom {
+				-webkit-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+			}
+			.mui-slider .mui-slider-group .mui-slider-item img {
+				width: auto;
+				height: auto;
+				max-width: 100%;
+				max-height: 100%;
+			}
+			.mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+				width: 100%;
+			}
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+				display: inline-table;
+			}
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+				display: table-cell;
+				vertical-align: middle;
+			}
+			.mui-preview-loading {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+			.mui-preview-loading.mui-active {
+				display: block;
+			}
+			.mui-preview-loading .mui-spinner-white {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -25px;
+				margin-top: -25px;
+				height: 50px;
+				width: 50px;
+			}
+			.mui-preview-image img.mui-transitioning {
+				-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+				transition: transform 0.5s ease, opacity 0.5s ease;
+			}
+			@-webkit-keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+			@keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+			@-webkit-keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+				100% {
+					opacity: 0;
+				}
+			}
+			@keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+				100% {
+					opacity: 0;
+				}
+			}
+			p img {
+				max-width: 100%;
+				height: auto;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">关于我们</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<section class="wx96Diy" data-source="bj.96weixin.com" data-cusid="103586">
+				    <section style="margin: 5px 0;">
+				        <section class="96wx-bdc" style="border-width: 3px 1px 1px;border-style: solid;border-color: rgb(33, 33, 34) rgb(220, 220, 220) rgb(220, 220, 220);">
+				            <section style="display: inline-block;font-size: 1em;width: 100%;">
+				                <section class="96wx-bgc" style="display: inline-block;line-height: 1.4em;padding: 10px 0px;height: 32px;vertical-align: top;font-size: 20px;float: left;width: 152px;text-align: center;background: rgb(33, 33, 34);">
+				                    <span style="color: #FFFFFF;">COMPANY</span>
+				                </section>
+				                <section class="96wx-bdtc" style="display: inline-block;vertical-align: top;font-size: 16px;width: 0px;height: 0px;border-top: 32px solid #212122;border-right: 32px solid transparent;box-sizing: border-box !important;"></section>
+				                <section class="96wx-bdtc" style="font-size: 16px;width: 0px;height: 0px;border-top: 40px solid #212122;border-left: 32px solid transparent;border-right: 120px solid transparent;"></section>
+				            </section>
+				            <section style="margin:10px">
+				                <p>
+				                    <span style="font-size: 14px; color: #595959;">时间决定你会在生命中遇见谁，你的心决定你想要谁出现在你的生命里，而你的行为决定最后谁能留下。 from 《瓦尔登湖》</span>
+				                </p>
+				            </section>
+				        </section>
+				    </section>
+				</section>
+				<section class="wx96Diy" data-source="bj.96weixin.com">
+				    <section style="background-color:#9ACBDA;text-align:left;margin-top:1em;display: inline-block;">
+				        <section style="color: inherit; display: inline-block;font-size:4em;line-height:0.6em; vertical-align: top; text-align: inherit; text-decoration: inherit;">
+				            <section style="color: inherit;">
+				                <em>A</em>
+				            </section>
+				        </section>
+				        <section style="display: inline-block; margin-left: 0.2em;text-align: left;color: inherit;">
+				            <p style="line-height: 1.4;font-size: 16px;color:#FFFFFF;">
+				                BOUTUS
+				            </p>
+				            <p style="line-height:1.4;font-size:18px;color:#FFFFFF;">
+				                关于我们<br/>
+				            </p>
+				        </section>
+				    </section>
+				    <section class="96wx-bdtc 96wx-bdrc" style="margin-top: -2em; color: inherit; border-top-width: 1px; border-top-style: solid; border-top-color: rgb(33, 33, 34); margin-right: 8px; border-right-width: 1px; border-right-style: solid; border-right-color: rgb(33, 33, 34);margin-bottom:-5px;">
+				        <section style="margin:-6px -6px 0px; border-top-left-radius: 100%; border-top-right-radius: 100%; border-bottom-right-radius: 100%; border-bottom-left-radius: 100%; line-height: 1;background-color: rgb(254, 254, 254);display: inline-block; height:14px; width:14px; color: rgb(255, 255, 255); float: right;padding:3px;">
+				            <section class="96wx-bgc" style="width: 8px; height: 8px; border-radius: 50%; color: rgb(255, 255, 255); background-color: rgb(33, 33, 34);"></section>
+				        </section>
+				        <section style="margin-top:15px;padding:10px 15px 0px;line-height:1.5em; color: rgb(62, 62, 62);">
+				            <p style="color: inherit; ">
+				                <span style="font-size: 14px;"><span style="font-size: 14px;">人的成长不是一簇而就的，万千光环于一身的TA，背后也有着心酸的血泪史。站在山底不可怕，可怕的是知道山路崎岖，便没有了爬上山巅的勇气。我们是菜鸟，但只要内心强大，终究会活出自己，绽放自己。既然选择了远方，便只顾风雨兼程。</span></span>
+				            </p>
+				        </section>
+				    </section>
+				    <section style="margin-top:-1.4em;">
+				        <section style="height:40px; box-sizing: border-box; color: inherit;">
+				            <section class="96wx-bdc" style="height: 100%; width: 100px; float: left; border-bottom-width: 1px; border-bottom-style: solid; border-color: rgb(33, 33, 34); border-left-width: 1px; border-left-style: solid; box-sizing: border-box; color: inherit;"></section>
+				        </section>
+				        <section style="margin:-8px 0px 0px -6px; border-top-left-radius: 100%; border-top-right-radius: 100%; border-bottom-right-radius: 100%; border-bottom-left-radius: 100%; line-height: 1;background-color: rgb(254, 254, 254);display: inline-block; height:14px; width:14px; color: rgb(255, 255, 255); float:left;padding:3px;">
+				            <section class="96wx-bgc" style="width: 8px; height: 8px; border-radius: 50%; color: rgb(255, 255, 255); background-color: rgb(33, 33, 34);"></section>
+				        </section>
+				    </section>
+				</section>
+				<section class="wx96Diy" data-source="bj.96weixin.com">
+				    <section class="96wx-bdtc" id="96weixintp1101001">
+				        <section style="margin: 20px 0px; padding: 0px; display: inline-block; width: 100%; box-sizing: border-box !important; color: inherit;" data-width="100%">
+				            <section style="margin: 0px 20px; padding: 0px; box-sizing: border-box; color: inherit;">
+				                <section style="margin: 0px; padding: 0px; box-sizing: border-box; color: inherit;">
+				                    <section class="96wx-bgc" style="margin-top: 0px; padding: 10px 0px; background-color: rgb(0, 187, 236); color: rgb(255, 255, 255); font-size: 20px; text-align: center; letter-spacing: 0.2em;">
+				                        <span style="color: inherit;"><span style="color: inherit;">组长:帅哥</span></span>
+				                    </section>
+				                    <section style="margin: 0px; padding: 0px; box-sizing: border-box; color: inherit;">
+				                        <section style="margin-top: 0px; padding: 0px; height: 0px; border-top-width: 10px; border-top-style: solid; border-top-color: rgb(60, 60, 60); border-left-width: 10px; border-left-style: solid; border-left-color: transparent; display: inline-block; float: left; color: inherit;"></section>
+				                        <section style="margin-top: 0px; padding: 0px; height: 0px; border-top-width: 10px; border-top-style: solid; border-top-color: rgb(60, 60, 60); border-right-width: 10px; border-right-style: solid; border-right-color: transparent; display: inline-block; float: right; color: inherit;"></section>
+				                    </section>
+				                </section>
+				                <section style="margin: 0px 10px; padding: 10px 0px; border: 0px; background-color: rgb(255, 255, 255); box-shadow: rgb(102, 102, 102) 0px 0px 6px; box-sizing: border-box; color: inherit;">
+				                    <section style="margin: 0px; padding: 10px 20px; box-sizing: border-box; color: inherit;">
+				                        <p style="font-size: 14px; text-align: center; line-height: 1.5em; color: inherit; word-wrap: break-word !important;">
+				                            <span class="96wx-bdtc" style="color: inherit;"><span class="96wx-bdtc" style="color: inherit;">只愿做一个安静的美男子</span></span>
+				                        </p>
+				                        <p style="font-size: 14px; text-align: center; line-height: 1.5em; color: inherit; word-wrap: break-word !important;">
+				                            <span class="96wx-bdtc" style="color: inherit;"><span class="96wx-bdtc" style="color: inherit;"><img title="1492252526659445.jpg" alt="P60804-074714_mh1470268115433.jpg" src="img/zhaopshaui.jpg"/></span></span>
+				                        </p>
+				                    </section>
+				                    <section style="margin: 0px 10px; padding: 0px; border: 0px; box-sizing: border-box; color: inherit;"></section>
+				                </section>
+				            </section>
+				        </section>
+				    </section>
+				</section>
+				<section class="wx96Diy" data-source="bj.96weixin.com">
+				    <section class="96wx-bdtc" id="96weixintp1101001">
+				        <section style="margin: 20px 0px; padding: 0px; display: inline-block; width: 100%; box-sizing: border-box !important; color: inherit;" data-width="100%">
+				            <section style="margin: 0px 20px; padding: 0px; box-sizing: border-box; color: inherit;">
+				                <section style="margin: 0px; padding: 0px; box-sizing: border-box; color: inherit;">
+				                    <section class="96wx-bgc" style="margin-top: 0px; padding: 10px 0px; background-color: rgb(0, 187, 236); color: rgb(255, 255, 255); font-size: 20px; text-align: center; letter-spacing: 0.2em;">
+				                        <span style="color: inherit;"><span style="color: inherit;">组员:刘彤彤</span></span>
+				                    </section>
+				                    <section style="margin: 0px; padding: 0px; box-sizing: border-box; color: inherit;">
+				                        <section style="margin-top: 0px; padding: 0px; height: 0px; border-top-width: 10px; border-top-style: solid; border-top-color: rgb(60, 60, 60); border-left-width: 10px; border-left-style: solid; border-left-color: transparent; display: inline-block; float: left; color: inherit;"></section>
+				                        <section style="margin-top: 0px; padding: 0px; height: 0px; border-top-width: 10px; border-top-style: solid; border-top-color: rgb(60, 60, 60); border-right-width: 10px; border-right-style: solid; border-right-color: transparent; display: inline-block; float: right; color: inherit;"></section>
+				                    </section>
+				                </section>
+				                <section style="margin: 0px 10px; padding: 10px 0px; border: 0px; background-color: rgb(255, 255, 255); box-shadow: rgb(102, 102, 102) 0px 0px 6px; box-sizing: border-box; color: inherit;">
+				                    <section style="margin: 0px; padding: 10px 20px; box-sizing: border-box; color: inherit;">
+				                        <p style="font-size: 14px; text-align: center; line-height: 1.5em; color: inherit; word-wrap: break-word !important;">
+				                            <span class="96wx-bdtc" style="color: inherit;"><span class="96wx-bdtc" style="color: inherit;">霸气侧漏，温婉动人</span></span>
+				                        </p>
+				                        <p style="font-size: 14px; text-align: center; line-height: 1.5em; color: inherit; word-wrap: break-word !important;">
+				                            <span class="96wx-bdtc" style="color: inherit;"><span class="96wx-bdtc" style="color: inherit;"><img title="1492252526659445.jpg" alt="P60804-074714_mh1470268115433.jpg" src="img/liuyutong.jpg"/></span></span>
+				                        </p>
+				                    </section>
+				                    <section style="margin: 0px 10px; padding: 0px; border: 0px; box-sizing: border-box; color: inherit;"></section>
+				                </section>
+				            </section>
+				        </section>
+				    </section>
+				</section>
+				<section class="wx96Diy" data-source="bj.96weixin.com">
+				    <section class="96wx-bdtc" id="96weixintp1101001">
+				        <section style="margin: 20px 0px; padding: 0px; display: inline-block; width: 100%; box-sizing: border-box !important; color: inherit;" data-width="100%">
+				            <section style="margin: 0px 20px; padding: 0px; box-sizing: border-box; color: inherit;">
+				                <section style="margin: 0px; padding: 0px; box-sizing: border-box; color: inherit;">
+				                    <section class="96wx-bgc" style="margin-top: 0px; padding: 10px 0px; background-color: rgb(0, 187, 236); color: rgb(255, 255, 255); font-size: 20px; text-align: center; letter-spacing: 0.2em;">
+				                        <span style="color: inherit;"><span style="color: inherit;">组员:层哥</span></span>
+				                    </section>
+				                    <section style="margin: 0px; padding: 0px; box-sizing: border-box; color: inherit;">
+				                        <section style="margin-top: 0px; padding: 0px; height: 0px; border-top-width: 10px; border-top-style: solid; border-top-color: rgb(60, 60, 60); border-left-width: 10px; border-left-style: solid; border-left-color: transparent; display: inline-block; float: left; color: inherit;"></section>
+				                        <section style="margin-top: 0px; padding: 0px; height: 0px; border-top-width: 10px; border-top-style: solid; border-top-color: rgb(60, 60, 60); border-right-width: 10px; border-right-style: solid; border-right-color: transparent; display: inline-block; float: right; color: inherit;"></section>
+				                    </section>
+				                </section>
+				                <section style="margin: 0px 10px; padding: 10px 0px; border: 0px; background-color: rgb(255, 255, 255); box-shadow: rgb(102, 102, 102) 0px 0px 6px; box-sizing: border-box; color: inherit;">
+				                    <section style="margin: 0px; padding: 10px 20px; box-sizing: border-box; color: inherit;">
+				                        <p style="font-size: 14px; text-align: center; line-height: 1.5em; color: inherit; word-wrap: break-word !important;">
+				                            <span class="96wx-bdtc" style="color: inherit;"><span class="96wx-bdtc" style="color: inherit;">一块腹肌征服世界</span></span>
+				                        </p>
+				                        <p style="font-size: 14px; text-align: center; line-height: 1.5em; color: inherit; word-wrap: break-word !important;">
+				                            <span class="96wx-bdtc" style="color: inherit;"><span class="96wx-bdtc" style="color: inherit;"><img title="1492252526659445.jpg" alt="P60804-074714_mh1470268115433.jpg" src="img/sunweicheng.jpg"/></span></span>
+				                        </p>
+				                    </section>
+				                    <section style="margin: 0px 10px; padding: 0px; border: 0px; box-sizing: border-box; color: inherit;"></section>
+				                </section>
+				            </section>
+				        </section>
+				    </section>
+				</section>
+				<section class="wx96Diy" data-source="bj.96weixin.com">
+				    <section class="96wx-bdtc" id="96weixintp1101001">
+				        <section style="margin: 20px 0px; padding: 0px; display: inline-block; width: 100%; box-sizing: border-box !important; color: inherit;" data-width="100%">
+				            <section style="margin: 0px 20px; padding: 0px; box-sizing: border-box; color: inherit;">
+				                <section style="margin: 0px; padding: 0px; box-sizing: border-box; color: inherit;">
+				                    <section class="96wx-bgc" style="margin-top: 0px; padding: 10px 0px; background-color: rgb(0, 187, 236); color: rgb(255, 255, 255); font-size: 20px; text-align: center; letter-spacing: 0.2em;">
+				                        <span style="color: inherit;"><span style="color: inherit;">组员:马哥</span></span>
+				                    </section>
+				                    <section style="margin: 0px; padding: 0px; box-sizing: border-box; color: inherit;">
+				                        <section style="margin-top: 0px; padding: 0px; height: 0px; border-top-width: 10px; border-top-style: solid; border-top-color: rgb(60, 60, 60); border-left-width: 10px; border-left-style: solid; border-left-color: transparent; display: inline-block; float: left; color: inherit;"></section>
+				                        <section style="margin-top: 0px; padding: 0px; height: 0px; border-top-width: 10px; border-top-style: solid; border-top-color: rgb(60, 60, 60); border-right-width: 10px; border-right-style: solid; border-right-color: transparent; display: inline-block; float: right; color: inherit;"></section>
+				                    </section>
+				                </section>
+				                <section style="margin: 0px 10px; padding: 10px 0px; border: 0px; background-color: rgb(255, 255, 255); box-shadow: rgb(102, 102, 102) 0px 0px 6px; box-sizing: border-box; color: inherit;">
+				                    <section style="margin: 0px; padding: 10px 20px; box-sizing: border-box; color: inherit;">
+				                        <p style="font-size: 14px; text-align: center; line-height: 1.5em; color: inherit; word-wrap: break-word !important;">
+				                            <span class="96wx-bdtc" style="color: inherit;"><span class="96wx-bdtc" style="color: inherit;">靠气场压倒一切，
+就是自由的感觉~  就是飞翔的感觉~</span></span>
+				                        </p>
+				                        <p style="font-size: 14px; text-align: center; line-height: 1.5em; color: inherit; word-wrap: break-word !important;">
+				                            <span class="96wx-bdtc" style="color: inherit;"><span class="96wx-bdtc" style="color: inherit;"><img title="1492252526659445.jpg" alt="P60804-074714_mh1470268115433.jpg" src="img/mahongping.jpg"/></span></span>
+				                        </p>
+				                    </section>
+				                    <section style="margin: 0px 10px; padding: 0px; border: 0px; box-sizing: border-box; color: inherit;"></section>
+				                </section>
+				            </section>
+				        </section>
+				    </section>
+				</section>
+				<section class="wx96Diy" data-source="bj.96weixin.com">
+				    <section class="96wx-bdtc" id="96weixintp1101001">
+				        <section style="margin: 20px 0px; padding: 0px; display: inline-block; width: 100%; box-sizing: border-box !important; color: inherit;" data-width="100%">
+				            <section style="margin: 0px 20px; padding: 0px; box-sizing: border-box; color: inherit;">
+				                <section style="margin: 0px; padding: 0px; box-sizing: border-box; color: inherit;">
+				                    <section class="96wx-bgc" style="margin-top: 0px; padding: 10px 0px; background-color: rgb(0, 187, 236); color: rgb(255, 255, 255); font-size: 20px; text-align: center; letter-spacing: 0.2em;">
+				                        <span style="color: inherit;"><span style="color: inherit;">组员:发哥</span></span>
+				                    </section>
+				                    <section style="margin: 0px; padding: 0px; box-sizing: border-box; color: inherit;">
+				                        <section style="margin-top: 0px; padding: 0px; height: 0px; border-top-width: 10px; border-top-style: solid; border-top-color: rgb(60, 60, 60); border-left-width: 10px; border-left-style: solid; border-left-color: transparent; display: inline-block; float: left; color: inherit;"></section>
+				                        <section style="margin-top: 0px; padding: 0px; height: 0px; border-top-width: 10px; border-top-style: solid; border-top-color: rgb(60, 60, 60); border-right-width: 10px; border-right-style: solid; border-right-color: transparent; display: inline-block; float: right; color: inherit;"></section>
+				                    </section>
+				                </section>
+				                <section style="margin: 0px 10px; padding: 10px 0px; border: 0px; background-color: rgb(255, 255, 255); box-shadow: rgb(102, 102, 102) 0px 0px 6px; box-sizing: border-box; color: inherit;">
+				                    <section style="margin: 0px; padding: 10px 20px; box-sizing: border-box; color: inherit;">
+				                        <p style="font-size: 14px; text-align: center; line-height: 1.5em; color: inherit; word-wrap: break-word !important;">
+				                            <span class="96wx-bdtc" style="color: inherit;"><span class="96wx-bdtc" style="color: inherit;">知识渊博深似海，宰相肚里能撑船</span></span>
+				                        </p>
+				                        <p style="font-size: 14px; text-align: center; line-height: 1.5em; color: inherit; word-wrap: break-word !important;">
+				                            <span class="96wx-bdtc" style="color: inherit;"><span class="96wx-bdtc" style="color: inherit;"><img title="1492252526659445.jpg" alt="P60804-074714_mh1470268115433.jpg" src="img/changbaofa.jpg"/></span></span>
+				                        </p>
+				                    </section>
+				                    <section style="margin: 0px 10px; padding: 0px; border: 0px; box-sizing: border-box; color: inherit;"></section>
+				                </section>
+				            </section>
+				        </section>
+				    </section>
+				</section>
+				<section class="wx96Diy" data-source="bj.96weixin.com">
+				    <section class="96wx-bdtc" id="96weixintp1101001">
+				        <section style="margin: 20px 0px; padding: 0px; display: inline-block; width: 100%; box-sizing: border-box !important; color: inherit;" data-width="100%">
+				            <section style="margin: 0px 20px; padding: 0px; box-sizing: border-box; color: inherit;">
+				                <section style="margin: 0px; padding: 0px; box-sizing: border-box; color: inherit;">
+				                    <section class="96wx-bgc" style="margin-top: 0px; padding: 10px 0px; background-color: rgb(0, 187, 236); color: rgb(255, 255, 255); font-size: 20px; text-align: center; letter-spacing: 0.2em;">
+				                        <span style="color: inherit;"><span style="color: inherit;">组员:伊伊</span></span>
+				                    </section>
+				                    <section style="margin: 0px; padding: 0px; box-sizing: border-box; color: inherit;">
+				                        <section style="margin-top: 0px; padding: 0px; height: 0px; border-top-width: 10px; border-top-style: solid; border-top-color: rgb(60, 60, 60); border-left-width: 10px; border-left-style: solid; border-left-color: transparent; display: inline-block; float: left; color: inherit;"></section>
+				                        <section style="margin-top: 0px; padding: 0px; height: 0px; border-top-width: 10px; border-top-style: solid; border-top-color: rgb(60, 60, 60); border-right-width: 10px; border-right-style: solid; border-right-color: transparent; display: inline-block; float: right; color: inherit;"></section>
+				                    </section>
+				                </section>
+				                <section style="margin: 0px 10px; padding: 10px 0px; border: 0px; background-color: rgb(255, 255, 255); box-shadow: rgb(102, 102, 102) 0px 0px 6px; box-sizing: border-box; color: inherit;">
+				                    <section style="margin: 0px; padding: 10px 20px; box-sizing: border-box; color: inherit;">
+				                        <p style="font-size: 14px; text-align: center; line-height: 1.5em; color: inherit; word-wrap: break-word !important;">
+				                            <span class="96wx-bdtc" style="color: inherit;"><span class="96wx-bdtc" style="color: inherit;">安静，睿智，勤奋，温柔</span></span>
+				                        </p>
+				                        <p style="font-size: 14px; text-align: center; line-height: 1.5em; color: inherit; word-wrap: break-word !important;">
+				                            <span class="96wx-bdtc" style="color: inherit;"><span class="96wx-bdtc" style="color: inherit;"><img title="1492252526659445.jpg" alt="P60804-074714_mh1470268115433.jpg" src="img/guanshengyi.jpg"/></span></span>
+				                        </p>
+				                    </section>
+				                    <section style="margin: 0px 10px; padding: 0px; border: 0px; box-sizing: border-box; color: inherit;"></section>
+				                </section>
+				            </section>
+				        </section>
+				    </section>
+				</section>
+				<section class="wx96Diy" data-source="bj.96weixin.com">
+				    <section class="96wx-bdtc" id="96weixintp1101001">
+				        <section style="margin: 20px 0px; padding: 0px; display: inline-block; width: 100%; box-sizing: border-box !important; color: inherit;" data-width="100%">
+				            <section style="margin: 0px 20px; padding: 0px; box-sizing: border-box; color: inherit;">
+				                <section style="margin: 0px; padding: 0px; box-sizing: border-box; color: inherit;">
+				                    <section class="96wx-bgc" style="margin-top: 0px; padding: 10px 0px; background-color: rgb(0, 187, 236); color: rgb(255, 255, 255); font-size: 20px; text-align: center; letter-spacing: 0.2em;">
+				                        <span style="color: inherit;"><span style="color: inherit;">组员:老刁</span></span>
+				                    </section>
+				                    <section style="margin: 0px; padding: 0px; box-sizing: border-box; color: inherit;">
+				                        <section style="margin-top: 0px; padding: 0px; height: 0px; border-top-width: 10px; border-top-style: solid; border-top-color: rgb(60, 60, 60); border-left-width: 10px; border-left-style: solid; border-left-color: transparent; display: inline-block; float: left; color: inherit;"></section>
+				                        <section style="margin-top: 0px; padding: 0px; height: 0px; border-top-width: 10px; border-top-style: solid; border-top-color: rgb(60, 60, 60); border-right-width: 10px; border-right-style: solid; border-right-color: transparent; display: inline-block; float: right; color: inherit;"></section>
+				                    </section>
+				                </section>
+				                <section style="margin: 0px 10px; padding: 10px 0px; border: 0px; background-color: rgb(255, 255, 255); box-shadow: rgb(102, 102, 102) 0px 0px 6px; box-sizing: border-box; color: inherit;">
+				                    <section style="margin: 0px; padding: 10px 20px; box-sizing: border-box; color: inherit;">
+				                        <p style="font-size: 14px; text-align: center; line-height: 1.5em; color: inherit; word-wrap: break-word !important;">
+				                            <span class="96wx-bdtc" style="color: inherit;"><span class="96wx-bdtc" style="color: inherit;">外表刚强，内心柔弱</span></span>
+				                        </p>
+				                        <p style="font-size: 14px; text-align: center; line-height: 1.5em; color: inherit; word-wrap: break-word !important;">
+				                            <span class="96wx-bdtc" style="color: inherit;"><span class="96wx-bdtc" style="color: inherit;"><img title="1492252526659445.jpg" alt="P60804-074714_mh1470268115433.jpg" src="img/diaodefeng.jpg"/></span></span>
+				                        </p>
+				                    </section>
+				                    <section style="margin: 0px 10px; padding: 0px; border: 0px; box-sizing: border-box; color: inherit;"></section>
+				                </section>
+				            </section>
+				        </section>
+				    </section>
+				</section>
+				<section class="wx96Diy" data-source="bj.96weixin.com">
+				    <section class="96wx-bdtc" id="96weixintp1101001">
+				        <section style="margin: 20px 0px; padding: 0px; display: inline-block; width: 100%; box-sizing: border-box !important; color: inherit;" data-width="100%">
+				            <section style="margin: 0px 20px; padding: 0px; box-sizing: border-box; color: inherit;">
+				                <section style="margin: 0px; padding: 0px; box-sizing: border-box; color: inherit;">
+				                    <section class="96wx-bgc" style="margin-top: 0px; padding: 10px 0px; background-color: rgb(0, 187, 236); color: rgb(255, 255, 255); font-size: 20px; text-align: center; letter-spacing: 0.2em;">
+				                        <span style="color: inherit;"><span style="color: inherit;">组员:欢哥</span></span>
+				                    </section>
+				                    <section style="margin: 0px; padding: 0px; box-sizing: border-box; color: inherit;">
+				                        <section style="margin-top: 0px; padding: 0px; height: 0px; border-top-width: 10px; border-top-style: solid; border-top-color: rgb(60, 60, 60); border-left-width: 10px; border-left-style: solid; border-left-color: transparent; display: inline-block; float: left; color: inherit;"></section>
+				                        <section style="margin-top: 0px; padding: 0px; height: 0px; border-top-width: 10px; border-top-style: solid; border-top-color: rgb(60, 60, 60); border-right-width: 10px; border-right-style: solid; border-right-color: transparent; display: inline-block; float: right; color: inherit;"></section>
+				                    </section>
+				                </section>
+				                <section style="margin: 0px 10px; padding: 10px 0px; border: 0px; background-color: rgb(255, 255, 255); box-shadow: rgb(102, 102, 102) 0px 0px 6px; box-sizing: border-box; color: inherit;">
+				                    <section style="margin: 0px; padding: 10px 20px; box-sizing: border-box; color: inherit;">
+				                        <p style="font-size: 14px; text-align: center; line-height: 1.5em; color: inherit; word-wrap: break-word !important;">
+				                            <span class="96wx-bdtc" style="color: inherit;"><span class="96wx-bdtc" style="color: inherit;">活泼，话多，对这个世界充满了莫须有的疑问</span></span>
+				                        </p>
+				                        <p style="font-size: 14px; text-align: center; line-height: 1.5em; color: inherit; word-wrap: break-word !important;">
+				                            <span class="96wx-bdtc" style="color: inherit;"><span class="96wx-bdtc" style="color: inherit;"><img title="1492252526659445.jpg" alt="P60804-074714_mh1470268115433.jpg" src="img/lishihui.jpg"/></span></span>
+				                        </p>
+				                    </section>
+				                    <section style="margin: 0px 10px; padding: 0px; border: 0px; box-sizing: border-box; color: inherit;"></section>
+				                </section>
+				            </section>
+				        </section>
+				    </section>
+				</section>
+				<section class="wx96Diy" data-source="bj.96weixin.com">
+				    <section class="96wx-bdtc" id="96weixintp1101001">
+				        <section style="margin: 20px 0px; padding: 0px; display: inline-block; width: 100%; box-sizing: border-box !important; color: inherit;" data-width="100%">
+				            <section style="margin: 0px 20px; padding: 0px; box-sizing: border-box; color: inherit;">
+				                <section style="margin: 0px; padding: 0px; box-sizing: border-box; color: inherit;">
+				                    <section class="96wx-bgc" style="margin-top: 0px; padding: 10px 0px; background-color: rgb(0, 187, 236); color: rgb(255, 255, 255); font-size: 20px; text-align: center; letter-spacing: 0.2em;">
+				                        <span style="color: inherit;"><span style="color: inherit;">组员:庆华</span></span>
+				                    </section>
+				                    <section style="margin: 0px; padding: 0px; box-sizing: border-box; color: inherit;">
+				                        <section style="margin-top: 0px; padding: 0px; height: 0px; border-top-width: 10px; border-top-style: solid; border-top-color: rgb(60, 60, 60); border-left-width: 10px; border-left-style: solid; border-left-color: transparent; display: inline-block; float: left; color: inherit;"></section>
+				                        <section style="margin-top: 0px; padding: 0px; height: 0px; border-top-width: 10px; border-top-style: solid; border-top-color: rgb(60, 60, 60); border-right-width: 10px; border-right-style: solid; border-right-color: transparent; display: inline-block; float: right; color: inherit;"></section>
+				                    </section>
+				                </section>
+				                <section style="margin: 0px 10px; padding: 10px 0px; border: 0px; background-color: rgb(255, 255, 255); box-shadow: rgb(102, 102, 102) 0px 0px 6px; box-sizing: border-box; color: inherit;">
+				                    <section style="margin: 0px; padding: 10px 20px; box-sizing: border-box; color: inherit;">
+				                        <p style="font-size: 14px; text-align: center; line-height: 1.5em; color: inherit; word-wrap: break-word !important;">
+				                            <span class="96wx-bdtc" style="color: inherit;"><span class="96wx-bdtc" style="color: inherit;">勤奋的少年，未来的马云</span></span>
+				                        </p>
+				                        <p style="font-size: 14px; text-align: center; line-height: 1.5em; color: inherit; word-wrap: break-word !important;">
+				                            <span class="96wx-bdtc" style="color: inherit;"><span class="96wx-bdtc" style="color: inherit;"><img title="1492252526659445.jpg" alt="l" src="img/liqinghau.jpg"/></span></span>
+				                        </p>
+				                    </section>
+				                    <section style="margin: 0px 10px; padding: 0px; border: 0px; box-sizing: border-box; color: inherit;"></section>
+				                </section>
+				            </section>
+				        </section>
+				    </section>
+				</section>
+			</div>
+		</div>
+	</body>
+	<script src="js/mui.min.js"></script>
+	<script src="js/mui.zoom.js"></script>
+	<script src="js/mui.previewimage.js"></script>
+	<script>
+		mui.previewImage();
+	</script>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/write_message.css" />
+    <script type="text/javascript" src="js/common.js" ></script>
+	<script type="text/javascript" charset="utf-8">
+      	mui.init();
+    </script>
+    <style>
+    	body{
+    		
+    		background: #ede9e6;
+    	}
+    </style>
+	</head>
+	<body>
+		<div class="mui-navbar-inner mui-bar mui-bar-nav">
+			<button type="button" class="mui-left mui-action-back mui-btn  mui-btn-link mui-btn-nav mui-pull-left">
+				<span class="mui-icon mui-icon-left-nav"></span>
+			</button>
+			<h1 class="mui-center mui-title">写留言</h1>
+		</div>
+		<div class="mui-content">
+			<div class="logo">
+				<img src="img/logo.png" />
+			</div>
+			<div class="face">
+				<img src="img/face.jpg" />
+			</div>
+			<form class="message">
+			    <div class="mui-input-row">
+			    	<label>标题</label>
+			    	<input type="text" name="title" id="title" class="mui-input-clear" placeholder="请输入标题">
+			    </div>
+			    <div class="mui-input-row" style="margin-top:20px">
+			        <textarea placeholder="说点什么吧！" name="content" id="content"></textarea>
+			    </div>
+			    <div class="mui-button-row">
+			    <button type="button" id="write" class="mui-btn mui-btn-block">提交留言</button>
+			    
+			    </div>
+			</form>
+			
+		</div>
+		<script type="text/javascript" src="js/common.js" ></script>
+		<script type="text/javascript">
+			// 绑定form表单提交事件
+		mui.plusReady(function() {
+			var title = document.getElementById("title");
+			var content = document.getElementById("content");
+			var writeButton = document.getElementById("write");
+			var user=myStorage.getItem('username');
+			
+			writeButton.addEventListener('tap', function(event) {
+				var user=myStorage.getItem('username');
+				if(user == null){
+					mui.toast('请先登录！');
+					 mui.openWindow({
+					    url:'index.html',
+					    id:'login',
+					});
+				}else{
+					if(title.value==0){
+						mui.toast('请输入标题！');
+						return;
+					}
+			  		if(content.value==0){
+						mui.toast('请输入留言内容！');
+						return;
+					}
+			  			var username =myStorage.getItem('username');
+	                    mui.ajax('http://www.royalplatform.cn/company/app_write_message.php',{
+	                    data:  {
+	                    	username:username,
+		                    title:title.value,
+		                    content:content.value
+		               },
+	                   dataType:'json',
+	                   type:'post',
+	                   timeout:'10000',
+	                   success:function(data){
+						
+	                      if(data=='1'){  
+	                           mui.toast("留言成功");
+	                           mui.openWindow({
+								    url: 'message.html', 
+								    id:'message'
+								  });
+	                           //页面登录处理
+	                       }else{
+	                       		mui.toast("留言失败！");
+	                       }
+	                   },
+	                   error:function(data){
+	                            alert(data);
+	                       }
+	               });
+					
+				}
+					
+			});
+		});
+//			document.querySelector('form').addEventListener('submit', function(e){
+//			    e.preventDefault(); // 阻止默认事件
+//			
+//			    login();
+//			});	
+		</script>
+	</body>
+</html>
